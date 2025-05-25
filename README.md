@@ -26,13 +26,15 @@ cd FitDesk
 
 ```
 
-Install dependencies:
+2. Install dependencies:
 
 pip install -r requirements.txt
-Run the app:
 
-streamlit run Web.py
-Screenshots
+3. Run the app:
+   ```bash
+   streamlit run Web.py
+
+## Screenshots
 ![image](https://github.com/user-attachments/assets/b1105ba6-7510-4d77-bc83-42cf96add4b3)
 
 ## License
