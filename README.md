@@ -22,6 +22,10 @@ exercises/ # Exercise logic/scripts
 ```bash
 git clone https://github.com/KabirKhanuja/FitDesk.git
 cd FitDesk
+
+
+```
+
 Install dependencies:
 
 pip install -r requirements.txt
@@ -31,7 +35,7 @@ streamlit run Web.py
 Screenshots
 ![image](https://github.com/user-attachments/assets/b1105ba6-7510-4d77-bc83-42cf96add4b3)
 
-License
+## License
 © Kabir Khanuja
 
 
@@ -45,7 +49,7 @@ opencv-python
 mediapipe
 numpy
 To auto-generate from your local environment:
-
+```
 
 pip freeze > requirements.txt
 
