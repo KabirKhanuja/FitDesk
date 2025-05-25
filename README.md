@@ -22,8 +22,6 @@ exercises/ # Exercise logic/scripts
 ```bash
 git clone https://github.com/KabirKhanuja/FitDesk.git
 cd FitDesk
-
-
 ```
 
 2. Install dependencies:
@@ -31,7 +29,7 @@ cd FitDesk
 pip install -r requirements.txt
 ```
 
-4. Run the app:
+3. Run the app:
    ```bash
    streamlit run Web.py
 
