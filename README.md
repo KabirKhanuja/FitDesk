@@ -39,7 +39,7 @@ Screenshots
 © Kabir Khanuja
 
 
-### 📦 `requirements.txt` (Auto-generated version)
+### `requirements.txt` (Auto-generated version)
 
 If you want a quick version for now, based on your likely stack:
 
