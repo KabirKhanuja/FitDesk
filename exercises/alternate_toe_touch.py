@@ -19,8 +19,8 @@ def main(reps=10):
 
     cap = cv2.VideoCapture(0)
     rep_count = 0
-    phase = "down"  # "up" when knee and elbow are close
-    threshold_distance = 70  # pixels
+    phase = "down" 
+    threshold_distance = 70  
 
     engine.say("Begin standing cross crunches. Lift your knee to opposite elbow.")
     engine.runAndWait()
@@ -41,25 +41,20 @@ def main(reps=10):
             def get_coords(landmark):
                 return int(lm[landmark].x * w), int(lm[landmark].y * h)
 
-            # Get coordinates
             right_elbow = get_coords(mp_pose.PoseLandmark.RIGHT_ELBOW)
             left_elbow = get_coords(mp_pose.PoseLandmark.LEFT_ELBOW)
             right_knee = get_coords(mp_pose.PoseLandmark.RIGHT_KNEE)
             left_knee = get_coords(mp_pose.PoseLandmark.LEFT_KNEE)
 
-            # Draw circles
             for point in [right_elbow, left_elbow, right_knee, left_knee]:
                 cv2.circle(frame, point, 8, (255, 0, 255), -1)
 
-            # Calculate distances
             dist1 = np.linalg.norm(np.array(right_elbow) - np.array(left_knee))
             dist2 = np.linalg.norm(np.array(left_elbow) - np.array(right_knee))
 
-            # Show distances (for debugging)
             cv2.putText(frame, f"R-Elbow/L-Knee: {int(dist1)}", (30, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,255), 2)
             cv2.putText(frame, f"L-Elbow/R-Knee: {int(dist2)}", (30, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,255), 2)
 
-            # Rep detection logic
             if (dist1 < threshold_distance or dist2 < threshold_distance) and phase == "down":
                 phase = "up"
 
@@ -69,16 +64,13 @@ def main(reps=10):
                 engine.say(f"Repetition {rep_count}")
                 engine.runAndWait()
 
-        # Display rep count
         cv2.putText(frame, f"Reps: {rep_count}/{reps}", (30, h - 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
 
-        # Stop condition
         if rep_count >= reps:
             engine.say("Exercise complete. Well done!")
             engine.runAndWait()
             break
 
-        # Draw pose landmarks
         mp_drawing.draw_landmarks(
             frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
             mp_drawing.DrawingSpec(color=(0, 255, 0), thickness=2, circle_radius=3),
