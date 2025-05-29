@@ -1,63 +1,62 @@
-# FitDesk - Desktop Fitness Companion
+# 🏋️‍♂️ FitDesk
 
-Fitness at your finger tips
-
-![image](https://github.com/user-attachments/assets/06969071-2eed-4195-8121-eac5308d038a)
-
-FitDesk is a Windows application built with Python and Tkinter that helps you stay active while working at your desk. It provides guided exercises with real-time camera tracking, workout history tracking, and customizable settings.
+**FitDesk** is a Python-based virtual fitness assistant that guides users through physical exercises. It utilizes **MediaPipe**, **OpenCV**, and optionally **Streamlit** for the web interface.
 
 ## Features
 
-- **Exercise Library**: Categorized workouts (Upper Body, Lower Body, Full Body)
-- **Real-time Tracking**: Camera-based exercise monitoring with rep counting
-- **Workout History**: Track your progress with weekly statistics
-- **Customizable Interface**: Light/dark mode and adjustable goals
-- **Audio Guidance**: Text-to-speech instructions for proper form
+- Pose detection using MediaPipe
+- Virtual exercises with feedback
+- Progress tracking (e.g. squat counter)
+- Modular structure for adding new exercises
 
-## Current Exercise Support
+## Project Structure
 
-- **Shoulder Shrugs**: Tracks shoulder movements with MediaPipe pose detection
-- *More exercises coming soon!*
+Web.py # Main app script
+assets/ # Icons, images
+exercises/ # Exercise logic/scripts
 
 ## Installation
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/FitDesk.git
-   cd FitDesk
+1. Clone the repository:
+
+```bash
+git clone https://github.com/KabirKhanuja/FitDesk.git
+cd FitDesk
+```
 
 2. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the app:
    ```bash
-   pip install -r requirements.txt
+   streamlit run Web.py
 
-4. Run the application:
-   ```bash
-   python app.py
+## Screenshots
+![image](https://github.com/user-attachments/assets/b1105ba6-7510-4d77-bc83-42cf96add4b3)
 
-## Requirements
-  - Python 3.7+
-  - OpenCV 
-  - MediaPipe
-  - PyTTSx3 
-  - Pillow 
+## License
+© Kabir Khanuja
 
-## How It Works
 
-  1. Camera Integration: Uses OpenCV to capture webcam feed
-  2. Pose Detection: Leverages MediaPipe for body landmark tracking
-  3. Exercise Logic: Custom algorithms for each exercise (e.g., shoulder shrug detection)
-  4. Tkinter UI: Clean interface with theme support
+### `requirements.txt` (Auto-generated version)
 
-## Future Improvements
+If you want a quick version for now, based on your likely stack:
 
-- Add more exercises (bicep curls, squats, etc.)
-- Implement exercise GIF demonstrations
-- Add user profiles and progress tracking
-- Export workout history to CSV
-- Mobile companion app integration
+```txt
+streamlit
+opencv-python
+mediapipe
+numpy
+To auto-generate from your local environment:
+```
 
-## Contributing
-Contributions are welcome! Please open an issue or pull request for any:
+pip freeze > requirements.txt
 
->New exercises, UI improvements, Bug fixes
+Next Steps
+ - Add a logo or banner to the top of your README
+- Add demo screenshots (can capture the Streamlit UI)
+- Consider adding .gitignore to exclude stuff like .DS_Store or __pycache__
+- Add new features as separate commits (e.g. squat_counter, pose_feedback, etc.)
 
